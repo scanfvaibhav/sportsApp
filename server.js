@@ -1,9 +1,13 @@
 const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
+const fetch = require('node-fetch');
+const generateWebAppURL = require('./utils').generateWebAppURL;
 
 const app = express();
 const port = process.env.PORT || 5000;
+
+require('./routes')(app);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -12,7 +16,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
 });
-
+app.post('/player-search', (req, res) => {
+  console.log(req);
+  const requestBody = req.body;
+  console.log(requestBody);
+  let type = "cricket";
+  const apiUrl = generateWebAppURL(requestBody.type, requestBody.data,type);
+console.log(apiUrl);
+  fetch(apiUrl)
+    .then(res => res.json())
+    .then(data => {
+      res.send({ data });
+    })
+    .catch(err => {
+      res.redirect('/error');
+    });
+});
 app.post('/api/world', (req, res) => {
   console.log(req.body);
   res.send(
