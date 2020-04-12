@@ -22,7 +22,6 @@ export const setDefaultInput = () => {
 };
 
 export const getWeatherData = (weatherSearchData) => {
-  debugger
   return {
     type: GET_WEATHER_DATA,
     payload: weatherSearchData,

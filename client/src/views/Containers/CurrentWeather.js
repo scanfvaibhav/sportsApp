@@ -9,7 +9,6 @@ import './App.css';
 
 class CurrentWeather extends Component {
   constructor(props) {
-    debugger
     super(props);
     props.actions.getWeatherData({ weatherSearchData: this.props.location.state });
     this.inputFieldRef = React.createRef();

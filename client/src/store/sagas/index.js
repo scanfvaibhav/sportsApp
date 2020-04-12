@@ -8,7 +8,6 @@ export default function * root() {
 };
 
 function * fetchWeatherData(action) {
-  debugger
   try {
     const { weatherSearchData } = action.payload;
 

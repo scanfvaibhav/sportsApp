@@ -10,7 +10,7 @@ const defaultState = {
 };
 
 const rootReducer = function(state = defaultState, action) {
-  debugger
+  
   const { payload } = action;
 
   switch (action.type) {
@@ -27,7 +27,6 @@ const rootReducer = function(state = defaultState, action) {
       return { ...state, loading: true, loaded: false, error: false };
     }
     case LOADED_WEATHER_DATA: {
-      debugger
       const { main, weather, name, wind  ,profile,
         imageURL,battingStyle,bowlingStyle,majorTeams,currentAge,born,fullName,country,playingRole} = payload;
 
