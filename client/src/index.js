@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import './views/css/styles.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
+import registerServiceWorker from './registerServiceWorker';
 
 // Store
 import store from './store/index';
@@ -23,4 +24,4 @@ ReactDOM.render(
   </Provider>
   , document.getElementById('root'));
 
-// registerServiceWorker(); // eslint-disable-line no-undef
+registerServiceWorker(); // eslint-disable-line no-undef
