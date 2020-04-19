@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const generateWebAppURL = require('./utils').generateWebAppURL;
+const {generateWebAppURL,cricketerSearch} = require('./utils');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -15,6 +15,22 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // API calls
 app.get('/api/hello', (req, res) => {
   res.send({ express: 'Hello From Express' });
+});
+app.get('/global-search', (req, res) => {
+  console.log(req.query.search);
+  let value=JSON.parse(req.query.search).value;
+  let type = "cricket";
+  const apiUrl = cricketerSearch(value,type);
+  console.log(apiUrl);
+  fetch(apiUrl)
+    .then(res => res.json())
+    .then(data => {
+      res.send(data.data);
+    })
+    .catch(err => {
+      res.redirect('/error');
+    });
+
 });
 app.post('/player-search', (req, res) => {
   console.log(req);
@@ -32,6 +48,7 @@ console.log(apiUrl);
       res.redirect('/error');
     });
 });
+
 app.post('/api/world', (req, res) => {
   console.log(req.body);
   res.send(

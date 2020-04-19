@@ -22,7 +22,10 @@ cricket  : {
   baseUrl: {
     protocol: 'https',
     hostname: 'cricapi.com',
-    path: '/api/playerStats',
+    path: {
+     stats: '/api/playerStats',
+   player : 'api/playerFinder'
+    }
   },
   query: {
     apiKey: 'apiKey',

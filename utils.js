@@ -25,8 +25,21 @@ module.exports = {
     return url.format({
       protocol: baseUrlConfig.protocol,
       hostname: baseUrlConfig.hostname,
-      pathname: baseUrlConfig.path,
+      pathname: baseUrlConfig.path.stats,
       query: requestQuery,
     });
   },
+  cricketerSearch : function(query,type){
+    let config = baseconfig[type];
+    const baseUrlConfig = config.baseUrl;
+    const APIkey = config.APIkey;
+
+    let requestQuery = {name:query,apikey: APIkey};
+    return url.format({
+      protocol: baseUrlConfig.protocol,
+      hostname: baseUrlConfig.hostname,
+      pathname: baseUrlConfig.path.player,
+      query: requestQuery
+    });
+  }
 };

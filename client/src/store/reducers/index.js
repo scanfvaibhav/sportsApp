@@ -27,21 +27,19 @@ const rootReducer = function(state = defaultState, action) {
       return { ...state, loading: true, loaded: false, error: false };
     }
     case LOADED_WEATHER_DATA: {
-      const { main, weather, name, wind  ,profile,
-        imageURL,battingStyle,bowlingStyle,majorTeams,currentAge,born,fullName,country,playingRole} = payload;
+      const { main, name  ,profile,
+        imageURL,battingStyle,bowlingStyle,majorTeams,currentAge,country,playingRole,data} = payload;
 
-      return { ...state, loading: false, loaded: true, main: main, weather: weather, name: name, wind: wind ,
+      return { ...state, loading: false, loaded: true, main: main, name: name,
         imageURL: imageURL,
     battingStyle: battingStyle,
     bowlingStyle: bowlingStyle,
     majorTeams: majorTeams,
     currentAge: currentAge,
-    born: born,
-    fullName: fullName,
-    name: name,
     profile:profile,
     country: country,
-    playingRole: playingRole};
+    playingRole: playingRole,
+  data:data};
     }
     case ERROR_WEATHER_DATA: {
       return { ...state, loading: false, error: true };

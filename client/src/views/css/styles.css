@@ -58,9 +58,11 @@ height: 100px;
     -webkit-box-shadow: 1px 1px 2px #333;
             box-shadow: 1px 1px 2px #333; }
   .zipcodeInput button {
+    position: relative;
     padding: 10px 18px;
     border-radius: 2px;
     margin-left: 4px;
+    margin-top: 0px;
     border: none;
     background: #EC4E20;
     color: #FFF;
@@ -266,3 +268,23 @@ height: 100px;
             box-shadow: 1px 1px 4px #333;
     margin-top: 30px;
     cursor: pointer; }
+    .suggestions {
+      border: 0px solid rgb(40, 123, 190);
+      border-top-width: 0;
+      list-style: georgian;
+      margin-top: 0;
+      max-height: 153px;
+      overflow-y: auto;
+      padding-left: 0;
+      width: calc(170px + 1rem);
+      background-color: #e7dcdc;
+      max-height: 100px;
+      overflow-y: auto;
+    }
+    
+    .suggestions:hover {
+      background-color: #00728f;
+      color: #e7dcdc;
+      cursor: pointer;
+      font-weight: 700;
+    }

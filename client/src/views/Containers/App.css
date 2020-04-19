@@ -4,7 +4,8 @@
     top: 10px;
     left: 0;
     font-family: 'Roboto';
-    display: flex; }
+    display: flex; 
+  }
     @media screen and (max-width: 980px) {
       .App {
         flex-direction: column; } }
@@ -26,7 +27,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    color:rgb(125, 173, 218)}
+    color:rgb(162, 191, 218)}
     @media screen and (max-width: 980px) {
       .App .Profile {
         width: 100vw;

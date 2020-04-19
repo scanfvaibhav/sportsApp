@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import SearchField from '../Components/SearchField.js';
 
 import { LightningBolt } from '../assets/lightning.svg';
 import { RadioButtonSection } from '../Components/index';
@@ -10,19 +11,7 @@ const radioButtons = [
   {
     value: 'pid',
     radioButtonLabel: 'Player ID',
-  },
-  {
-    value: 'id',
-    radioButtonLabel: 'City Id',
-  },
-  {
-    value: 'coordinates',
-    radioButtonLabel: 'City co-ordinates',
-  },
-  {
-    value: 'zipcode',
-    radioButtonLabel: 'City zipcode',
-  },
+  }
 ];
 
 export class Home extends React.Component {
@@ -30,17 +19,14 @@ export class Home extends React.Component {
   constructor(props) {
     super(props);
 
-    this.props.actions.setDefaultInput();
-    this.inputFieldRef = React.createRef();
+   
   }
 
   handleRadioInputChange = (event) => {
     this.props.actions.setLocationRadioInput({ locationType: event.target.value });
   }
 
-  handleButtonClick = (event) => {
-    this.props.actions.setLocationTextInput({ locationData: this.inputFieldRef.current.value });
-  }
+  
 
   componentDidUpdate = (prevProps) => {
     const { locationData, locationType } = this.props;
@@ -57,6 +43,7 @@ export class Home extends React.Component {
   }
 
   render() {
+   
     return (
       <div>
         <div className='header'>
@@ -66,15 +53,10 @@ export class Home extends React.Component {
         <div className="instructions">
           <p>Enter to Analyse</p>
         </div>
-        <div className='zipcodeInput'>
-          <input
-            ref={this.inputFieldRef}
-            type='text'
-            placeholder='Search..'
-            name='pid'
-          />
-          <button onClick={this.handleButtonClick}>ENTER</button>
-        </div>
+        
+        <SearchField  actions={this.props.actions}/>
+         
+     
         <div className='radio-button-section'>
           <RadioButtonSection
             radioButtons={radioButtons}

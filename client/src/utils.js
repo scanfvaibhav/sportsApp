@@ -1,4 +1,4 @@
-import { WEATHER_API_ENDPOINT ,PLAYER_API_ENDPOINT} from './constants';
+import {PLAYER_API_ENDPOINT} from './constants';
 import ThunderStormIcon from './views/assets/weather_icons/01W.svg';
 import RainIcon from './views/assets/weather_icons/02W.svg';
 import SnowIcon from './views/assets/weather_icons/03W.svg';

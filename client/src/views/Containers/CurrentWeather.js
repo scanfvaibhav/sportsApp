@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import StarRatings from 'react-star-ratings';
 
-import { weatherIcon } from '../../utils';
 import * as actions from '../../store/actions/index';
 import { WeatherCardError, Loader } from '../Components/index';
 import './App.css';
@@ -15,8 +14,8 @@ class CurrentWeather extends Component {
   }
 
   render() {
-    const { loading, loaded, error, currentTemp, currentConditionDescription,
-      humidity, wind, profile,cityName, weatherId ,imageURL,battingStyle,bowlingStyle,name,majorTeams,currentAge,born,fullName,country,playingRole} = this.props;
+    const { loading, loaded, error,
+     name} = this.props;
 const person = this.props;
     if (error) {
       return (
@@ -39,8 +38,9 @@ const person = this.props;
 
   loaded && (
     <div>
-    <Header/>
+    
     <div className="App">
+   
             <Profile person={person} quote={name}/>
             
           </div>
@@ -84,13 +84,6 @@ const person = this.props;
 
 
 
-
-
-function Image(props){
-    return (
-      <div style={{backgroundImage: 'url(' + props.src + ')'}}></div>
-    ); 
-}
 function Header(props){
   return(<div className='zipcodeInput'>
   <input
@@ -102,24 +95,44 @@ function Header(props){
 </div>);
 }
 function Profile(props){
-  let properties =  ['battingStyle','bowlingStyle','majorTeams','currentAge','born','profile',]
-  return (
+  let profile= (
       <div className="Profile">
+      <div className='weatherCard'>
+      <img src={props.person.imageURL} alt='Weather icon'/>
+      </div>
         <h1 className="Name">{props.person.name}</h1>
-        <div>
-       { properties.map(function(id){
-         if(props.person[id])
-          return <div><p>{id}</p> <div className="Bio"> &mdash;{props.person[id]}</div></div>
-        })}</div>
+        <StarRatings
+        rating={getRatings(props.person.data)}
+        starRatedColor="hsl(51, 71%, 61%)"
+        starDimension="20px"
+        starSpacing="3px"
+      />
+        <div className="Bio"> &mdash;{props.person['profile']}</div>
+        <div className="Bio"> He is {props.person["battingStyle"]}sman & {props.person["bowlingStyle"]} bowler</div>
+        <div className="Bio"> He has played for {props.person['majorTeams']}</div>
+        <div className="Bio"> He was born on &mdash;{props.person['born']}(Current Age{props.person['currentAge']})</div>
         <div className="Quote">
           <blockquote>&ldquo; {props.person.country} &rdquo;</blockquote>
-          
         </div>
-        
       </div>
     );
+    return profile;
 }
-
+function getRatings(data){
+  let fullRate = 0;
+  try{
+    let odirate =  (data.batting.ODIs.Inns/452)*5;
+    let testsrate = (data.batting.tests.Inns/329)*5;
+    let odiRuns = (data.batting.ODIs.Runs/10000)*5;
+    let testRuns = (data.batting.tests.Runs/10000)*5;
+  
+    fullRate = Math.max(...[odiRuns,testRuns,testsrate,odirate]);
+  }catch(err){
+    console.log(err);
+  };
+ 
+return fullRate>5?5:fullRate;
+}
 const mapStateToProps = function(state) {
   const { main, weather, name, wind, loading, loaded, error } = state;
 
