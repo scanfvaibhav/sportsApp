@@ -4,9 +4,9 @@ import StarRatings from 'react-star-ratings';
 
 import * as actions from '../../store/actions/index';
 import { WeatherCardError, Loader } from '../Components/index';
-import './App.css';
 
-class CurrentWeather extends Component {
+
+class Dashboard extends Component {
   constructor(props) {
     super(props);
     props.actions.getWeatherData({ weatherSearchData: this.props.location.state });
@@ -173,4 +173,4 @@ const mapDispatchToProps = function(dispatch) {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(CurrentWeather);
+export default connect(mapStateToProps, mapDispatchToProps)(Dashboard);

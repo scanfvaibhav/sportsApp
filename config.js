@@ -32,5 +32,13 @@ cricket  : {
     pid: 'pid'
   },
   APIkey: 'v9R4EDaJSRTX0Rc5twT1DTtHiSs1'
+},
+facebook : {
+  baseUrl: {
+    protocol: 'https',
+    hostname: 'graph.facebook.com',
+    path: 'v2.5/me'
+  },
+  fields:"email,name,picture,friends"
 }
 };

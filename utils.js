@@ -41,5 +41,18 @@ module.exports = {
       pathname: baseUrlConfig.path.player,
       query: requestQuery
     });
+  },
+  facebookUser : function(token,type){
+    let config = baseconfig[type];
+    const baseUrlConfig = config.baseUrl;
+    const fields = config.fields;
+
+    let requestQuery = {fields:fields,access_token:token};
+    return url.format({
+      protocol: baseUrlConfig.protocol,
+      hostname: baseUrlConfig.hostname,
+      pathname: baseUrlConfig.path,
+      query: requestQuery
+    });
   }
 };

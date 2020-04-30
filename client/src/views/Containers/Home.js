@@ -2,10 +2,19 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SearchField from '../Components/SearchField.js';
 
-import { LightningBolt } from '../assets/lightning.svg';
+
+import { LightningBolt } from '../assets/large.svg';
 import { RadioButtonSection } from '../Components/index';
 import { setLocationTextInput, setLocationRadioInput,
   setDefaultInput } from '../../store/actions/index';
+import Header from "./Header";
+import Footer from "./Footer";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import Login from './Login.js';
+
+
+
+  
 
 const radioButtons = [
   {
@@ -18,7 +27,6 @@ export class Home extends React.Component {
 
   constructor(props) {
     super(props);
-
    
   }
 
@@ -46,16 +54,33 @@ export class Home extends React.Component {
    
     return (
       <div>
+
+      <Router>
+    <div>
+      <Header />
+      
+      <Switch>
+      <Route path="/login" component={Login} />
+      </Switch>
+      
+     
+    </div>
+  </Router>
+      
         <div className='header'>
+        
           <h2>SportsX</h2>
-          <img src={LightningBolt}/>
+
+          
         </div>
+        <img src={LightningBolt}/>
         <div className="instructions">
           <p>Enter to Analyse</p>
         </div>
         
+        
         <SearchField  actions={this.props.actions}/>
-         
+       
      
         <div className='radio-button-section'>
           <RadioButtonSection
@@ -64,6 +89,8 @@ export class Home extends React.Component {
             onChange={this.handleRadioInputChange}
           />
         </div>
+       
+       
       </div>
     );
   }

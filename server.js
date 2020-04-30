@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const bodyParser = require('body-parser');
 const fetch = require('node-fetch');
-const {generateWebAppURL,cricketerSearch} = require('./utils');
+const {generateWebAppURL,cricketerSearch,facebookUser} = require('./utils');
 
 const app = express();
 const port = process.env.PORT || 5000;
@@ -26,6 +26,22 @@ app.get('/global-search', (req, res) => {
     .then(res => res.json())
     .then(data => {
       res.send(data.data);
+    })
+    .catch(err => {
+      res.redirect('/error');
+    });
+
+});
+app.get('/user-details', (req, res) => {
+  console.log(req.query.token);
+  let value=req.query.token;
+  let type = "facebook";
+  const apiUrl = facebookUser(value,type);
+  console.log(apiUrl);
+  fetch(apiUrl)
+    .then(res => res.json())
+    .then(data => {
+      res.send(data);
     })
     .catch(err => {
       res.redirect('/error');
