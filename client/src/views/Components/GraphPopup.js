@@ -11,10 +11,8 @@ export default class GraphPopup extends React.Component {
   render() {
     return (  
         <div className='graph-popup'>
-            <div className='popup\_inner'>
             <div className="instructions">{this.state.msg}</div>
                 <MyGraph data={this.state.data} msg={this.state.msg}/>
-            </div>
         </div>
         );  
     }  

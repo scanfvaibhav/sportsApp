@@ -1,11 +1,12 @@
 import { Graph } from "react-d3-graph";
 import React from 'react';
+import GraphPopup from '../GraphPopup.js';
 export default class MyGraph extends React.Component {  
     constructor(props) {
         super(props);
-        this.setState({
-            msg:this.props.msg
-        });
+        this.state={
+            'msg':"msg"
+        };
     }
 // graph payload (with minimalist structure)
 
@@ -14,10 +15,14 @@ export default class MyGraph extends React.Component {
 // that you want to override, otherwise default ones will be used
 myConfig = {
     nodeHighlightBehavior: true,
+    height:700,
+    width: 1000,
     node: {
         color: "lightgreen",
-        size: 120,
+        size: 220,
         highlightStrokeColor: "yellow",
+        "fontColor": "yellow",
+        "fontSize": 8,
     },
     link: {
         highlightColor: "lightblue",
@@ -25,50 +30,52 @@ myConfig = {
 };
  
 // graph event callbacks
-onClickGraph (){
-    window.alert(`Clicked the graph background`);
+onClickGraph(){
+    
+    //this.state.msg='Clicked the graph background';
 };
  
 onClickNode(nodeId) {
-    window.alert(`Clicked node ${nodeId}`);
+    //window.alert(`Clicked node ${nodeId}`);
 };
  
 onDoubleClickNode (nodeId) {
-    window.alert(`Double clicked node ${nodeId}`);
+   // window.alert(`Double clicked node ${nodeId}`);
 };
  
 onRightClickNode(event, nodeId) {
-    window.alert(`Right clicked node ${nodeId}`);
+    //window.alert(`Right clicked node ${nodeId}`);
 };
  onMouseOverNode(nodeId) {
-    window.alert(`Mouse over node ${nodeId}`);
+   // window.alert(`Mouse over node ${nodeId}`);
 };
  
  onMouseOutNode(nodeId) {
-    window.alert(`Mouse out node ${nodeId}`);
+    //window.alert(`Mouse out node ${nodeId}`);
 };
  
  onClickLink(source, target) {
-    window.alert(`Clicked link between ${source} and ${target}`);
+    //window.alert(`Clicked link between ${source} and ${target}`);
 };
  
  onRightClickLink(event, source, target) {
-    window.alert(`Right clicked link between ${source} and ${target}`);
+   // window.alert(`Right clicked link between ${source} and ${target}`);
 };
  
  onMouseOverLink(source, target) {
-    window.alert(`Mouse over in link between ${source} and ${target}`);
+    //window.alert(`Mouse over in link between ${source} and ${target}`);
 };
  
  onMouseOutLink(source, target) {
-    window.alert(`Mouse out link between ${source} and ${target}`);
+   // window.alert(`Mouse out link between ${source} and ${target}`);
 };
  
  onNodePositionChange(nodeId, x, y) {
-    window.alert(`Node ${nodeId} is moved to new position. New position is x= ${x} y= ${y}`);
+    //window.alert(`Node ${nodeId} is moved to new position. New position is x= ${x} y= ${y}`);
 };
 render() {
   return(
+      
     <Graph
         id="graph-id" // id is mandatory, if no id is defined rd3g will throw an error
         data={this.props.data}

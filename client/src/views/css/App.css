@@ -27,7 +27,7 @@
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    color:rgb(162, 191, 218)}
+    color:rgb(18, 18, 19)}
     @media screen and (max-width: 980px) {
       .App .Profile {
         width: 100vw;
@@ -39,7 +39,7 @@
     .App .Profile .Bio {
       font-size: 15px;
       line-height: 1.8;
-      color: rgb(231, 224, 224);
+      color: rgb(22, 21, 21);
       margin-bottom: 3vw;
       opacity: .4; }
     .App .Profile .Quote {
