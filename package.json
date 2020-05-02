@@ -12,7 +12,7 @@
   "scripts": {
     "server": "nodemon server.js",
     "client": "react-scripts start",
-    "start": "npm run client",
+    "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
