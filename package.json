@@ -10,12 +10,13 @@
   },
   "license": "MIT",
   "scripts": {
-    "server": "nodemon server.js",
-    "start": "npm run server",
+    "server": "npm install && nodemon server.js",
+    "client": "react-scripts start",
+    "start": "npm run client",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
-    "postinstall": "npm run build &&  serve -s build "
+    "postinstall": "npm run build"
   },
   "dependencies": {
     "axios": "^0.19.2",
