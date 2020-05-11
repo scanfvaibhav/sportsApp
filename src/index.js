@@ -11,7 +11,7 @@ import store from './store/index';
 
 // Views
 import { App, ErrorDisplay } from './views/Components/index';
-import { Home, Dashboard } from './views/Containers/index';
+import { Home, Dashboard, Main} from './views/Containers/index';
 
 
 ReactDOM.render(
@@ -21,6 +21,8 @@ ReactDOM.render(
         <Route exact path='/' component={Home}/>
         <Route exact path='/current-weather' component={Dashboard}/>
         <Route exact path='/error' component={ErrorDisplay}/>
+        <Route exact path='/main' component={Main}/>
+        
       </App>
     </Router>
   </Provider>

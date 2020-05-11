@@ -282,7 +282,9 @@ height: 100px;
       max-height: 100px;
       overflow-y: auto;
     }
-    
+    .header-top{
+      background-color: #9ac6eb;
+    }
     .suggestions:hover {
       background-color: #616464;
       color: #e7dcdc;
@@ -323,4 +325,28 @@ height: 100px;
     #graph-id-graph-wrapper svg{
       width: 80%;  
       height: 80%;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      height: 90vh;
+      overflow-y: scroll;
+    }
+    
+    .left-col {
+      flex: 1.5;
+      display: flex;
+      justify-content: center;
+      align-items: top;
+    }
+    
+    .center-col {
+      flex: 3;
+    }
+    
+    .right-col {
+      flex: 2;
+      display: flex;
+      justify-content: center;
+      align-items: top;
     }
