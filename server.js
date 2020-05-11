@@ -5,7 +5,7 @@ const fetch = require('node-fetch');
 const {generateWebAppURL,cricketerSearch,facebookUser} = require('./utils');
 
 const app = express();
-const port = process.env.PORT || 5000;
+const port = 5000;
 
 require('./routes')(app);
 
