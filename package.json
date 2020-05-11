@@ -2,7 +2,7 @@
   "name": "example-create-react-app-express",
   "version": "1.0.0",
   "description": "Example on using create-react-app with a Node Express Backend",
-  "proxy": `http://localhost:$PORT`
+  "proxy": "http://localhost:$PORT",
   "author": {
     "name": "Esau Silva",
     "twitter": "@_esausilva",
