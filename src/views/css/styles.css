@@ -283,7 +283,12 @@ height: 100px;
       overflow-y: auto;
     }
     .header-top{
-      background-color: #9ac6eb;
+      border: none;
+      background: rgb(39, 40, 41);
+      color: #FFF;
+      margin-block-end: left 100px;
+      -webkit-box-shadow: 1px 1px 4px #333;
+              box-shadow: 1px 1px 4px #333;
     }
     .suggestions:hover {
       background-color: #616464;
@@ -294,13 +299,17 @@ height: 100px;
     .popup {
       position: fixed;  
       width: 100;  
-      height: 100%;
-      top: 2;  
+      height: 90%;
+      top: 0;  
       left: 2;  
       right: 0;  
       bottom: 0;  
       margin: auto;
-      background-color: rgba(255, 255, 255, 0.5);
+      border: 10;
+      background:rgba(235, 235, 229, 0.5);
+      color: rgb(107, 184, 214);
+      -webkit-box-shadow: 1px 1px 4px #333;
+              box-shadow: 1px 1px 4px #333;
     }  
     .popup\_inner {  
       position: absolute;  
@@ -329,10 +338,13 @@ height: 100px;
     .container {
       display: flex;
       flex-direction: row;
-      height: 90vh;
       overflow-y: scroll;
     }
-    
+    .containerHeader{
+      display: flex;
+      flex-direction: row;
+      overflow-y: scroll;
+    }
     .left-col {
       flex: 1.5;
       display: flex;
@@ -350,3 +362,4 @@ height: 100px;
       justify-content: center;
       align-items: top;
     }
+   

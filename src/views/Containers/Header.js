@@ -7,8 +7,18 @@ import SearchField from '../Components/SearchField.js';
 function Header(props) {
   return (
       <div className="header-top">
-      
-    <Login style="align:left"/>XSPOrts
+      <div className="containerHeader">
+        <div className="left-col">
+        <h2>SportsX</h2>
+        </div>
+        
+        <div className="center-col">
+        </div>
+        
+        <div className="right-col">
+        <Login/>
+        </div>
+      </div>
     </div>
   );
 }

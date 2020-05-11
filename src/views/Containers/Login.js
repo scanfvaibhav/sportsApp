@@ -44,7 +44,14 @@ export default class Login extends React.Component {
       error: null
     });
   }
- 
+  logout(){
+    delete localStorage.userInfo;
+    delete localStorage.authInfo;
+    this.setState({
+      user: "",
+      picture: ""
+    });
+  }
   onLoginSuccess(method, response) {
       debugger
       this.closeModal();
@@ -103,9 +110,13 @@ export default class Login extends React.Component {
   render() {
     return (
       <div>
-     
-        {this.state.user.name?"":<button onClick={() => this.openModal()}>Login</button>}
-        {this.state.user.name?<button onClick={()=>this.togglePopup()}>{this.state.user.name}</button>:""}
+      <p>{this.state.user.name}</p>
+        <p>
+          {this.state.user.name?<button onClick={() => this.logout()}>Logout</button>:<button onClick={() => this.openModal()}>Login</button>}
+        </p>
+      
+        
+        
         {this.state.showPopup ?  
           <Popup  
                     state={this.state}  
@@ -113,7 +124,6 @@ export default class Login extends React.Component {
           />  
           : null  
           }
-          <button onClick={()=>this.toggleGraphPopup()}>DataView</button>
           {this.state.graphPopupdisplay?<GraphPopup msg={this.state.graphPopupmsg} data={this.state.graphData}/>:null}
         <ReactModalLogin
           visible={this.state.showModal}
