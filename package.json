@@ -2,7 +2,7 @@
   "name": "example-create-react-app-express",
   "version": "1.0.0",
   "description": "Example on using create-react-app with a Node Express Backend",
-  "proxy": "http://localhost:5000/",
+  "proxy": `http://localhost:$PORT`
   "author": {
     "name": "Esau Silva",
     "twitter": "@_esausilva",
@@ -15,8 +15,7 @@
     "start": "concurrently \"npm run server\" \"npm run client\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client        && npm run build --prefix client"
+    "eject": "react-scripts eject"
   },
   "dependencies": {
     "axios": "^0.19.2",
